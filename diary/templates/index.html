@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+<title>Positive Diary</title>
+{% endblock title %}
+
+{% block content %}
+<h3 class="mb-4 font-weight-bold">긍정확언 기록장</h3>
+<div class="card-custom mb-4">
+  <form method="POST" novalidate>
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="id_nickname">닉네임</label>
+        {{ form.nickname|add_class:"form-control" }}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="id_date">날짜를 입력해주세요</label>
+        {{ form.date|add_class:"form-control" }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="id_emotion">오늘의 긍정 감정을 선택하세요.</label>
+      {{ form.emotion|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_content">오늘의 긍정확언</label>
+      {{ form.content|attr:"class:form-control"|attr:"rows:4" }}
+    </div>
+
+    <div class="text-right">
+      <a href="#" class="btn btn-light">Cancel</a>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
+
+<h4 class="mt-4">오늘의 긍정확언 목록</h4>
+{% if affirmations %}
+      {% for affirmation in affirmations %}
+        <div class="entry-box d-flex justify-content-between align-items-center">
+          <div>
+            {{ affirmation.nickname }}  | {{ affirmation.emotion }} | {{ affirmation.content }}
+          </div>
+          <div class="text-muted small">
+            {{ affirmation.date }}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-muted">등록된 긍정확언이 아직 없습니다.</p>
+    {% endif %}
+
+
+
+{% endblock %}
