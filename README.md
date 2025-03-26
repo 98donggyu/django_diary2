@@ -22,7 +22,5 @@ import os
 INSTALLED_APPS = [ ..., '앱명',]
 ```
 
-```
 # 완성본 이미지
 <img src = "images/aaa.JPG" alt="완성본">
-```
