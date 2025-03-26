@@ -24,5 +24,5 @@ INSTALLED_APPS = [ ..., '앱명',]
 
 ```
 # 완성본 이미지
-![완성본](diary/static/images/aaa.JPG)
+![완성본](aaa.JPG)
 ```
