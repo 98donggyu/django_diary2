@@ -24,5 +24,5 @@ INSTALLED_APPS = [ ..., '앱명',]
 
 ```
 # 완성본 이미지
-![완성본](aaa.JPG)
+<img src = "aaa.JPG" alt="완성본">
 ```
